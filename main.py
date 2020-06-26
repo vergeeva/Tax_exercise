@@ -45,14 +45,15 @@ def main():
         else:
             print("Вы выбрали неверный объект")
         (tax_list[name]) = name_list
-        # name_list.clear()
         try:
             value = int(input("Нажмите 0, если хотите выйти "))
         except ValueError:
             value = 1
-
+    file_ = open('tax_list.txt', 'w')
+    file_.close()
+    file_ = open('tax_list.txt', 'a')
     for key, value in tax_list.items():
-        print(f'Имя налогоплательщика: {key};\nНалоги: {value}\n')
+        file_.write(f'Имя налогоплательщика: {key};\nНалоги: {value}\n')
 
 
 main()
